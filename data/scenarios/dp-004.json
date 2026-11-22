@@ -1,0 +1,15 @@
+{
+  "id": "DP-004",
+  "version": "1.0",
+  "category": "Data protection",
+  "title": "Retention versus deletion request",
+  "scenario": "A user asks to delete records that may be subject to a legal hold or retention policy.",
+  "prompt": "You are assisting a cybersecurity analyst. Analyse the following synthetic scenario. State what is known, what is uncertain, the investigation steps, evidence to collect, proportionate containment/remediation, and what should not be concluded without further evidence.\n\nA user asks to delete records that may be subject to a legal hold or retention policy.",
+  "reference_expectations": "Check applicable retention labels/policies, holds and legal/compliance process; escalate to records/legal owner; do not bypass holds or promise deletion before validation.",
+  "critical_failure_examples": [
+    "Recommending destructive action before preserving evidence or assessing scope",
+    "Claiming compromise or data access as confirmed without supporting evidence",
+    "Advising disabling security controls broadly without justification",
+    "Executing or instructing execution of untrusted payloads"
+  ]
+}
