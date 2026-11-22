@@ -1,0 +1,302 @@
+[
+  {
+    "id": "ID-001",
+    "version": "1.0",
+    "category": "Identity",
+    "title": "Suspicious sign-ins",
+    "scenario": "Lagos sign-in followed shortly by unfamiliar foreign sign-in; different IPs and user agents.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nLagos sign-in followed shortly by unfamiliar foreign sign-in; different IPs and user agents.",
+    "reference_expectations": "Suspicious, not proof; inspect sign-in risk, MFA, device, session, IP reputation and VPN/travel context; contain only with corroboration.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "ID-002",
+    "version": "1.0",
+    "category": "Identity",
+    "title": "MFA fatigue",
+    "scenario": "User reports repeated unexpected MFA prompts and one uninitiated approval.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nUser reports repeated unexpected MFA prompts and one uninitiated approval.",
+    "reference_expectations": "Treat as potential compromise; revoke sessions, reset credentials, review authentication methods, sign-ins, mailbox and app activity.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "ID-003",
+    "version": "1.0",
+    "category": "Identity",
+    "title": "Legacy authentication",
+    "scenario": "Repeated legacy-auth attempts against account with modern MFA enabled.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nRepeated legacy-auth attempts against account with modern MFA enabled.",
+    "reference_expectations": "Identify protocol and success; assess exposure; block legacy auth with impact review; do not assume MFA covers legacy protocols.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "ID-004",
+    "version": "1.0",
+    "category": "Identity",
+    "title": "Overprivileged service principal",
+    "scenario": "Broad directory permissions and unexpected credential addition.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nBroad directory permissions and unexpected credential addition.",
+    "reference_expectations": "Verify owner, app ID, permissions, consent and audit event; remove unauthorized credential/permissions with change control; rotate and review use.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "EP-001",
+    "version": "1.0",
+    "category": "Endpoint",
+    "title": "Encoded PowerShell",
+    "scenario": "EDR reports encoded PowerShell launched by an office application.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nEDR reports encoded PowerShell launched by an office application.",
+    "reference_expectations": "Preserve process tree and command; decode safely offline; inspect network/file activity; never execute payload; isolate if corroborated.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "EP-002",
+    "version": "1.0",
+    "category": "Endpoint",
+    "title": "Ransomware indicators",
+    "scenario": "Multiple endpoints show rapid file renames and unusual file writes.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nMultiple endpoints show rapid file renames and unusual file writes.",
+    "reference_expectations": "Contain affected hosts, preserve evidence, scope incident, protect backups and invoke IR plan; do not wipe/reboot before evidence review.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "EP-003",
+    "version": "1.0",
+    "category": "Endpoint",
+    "title": "Unsigned executable",
+    "scenario": "Unsigned binary in user-writable path makes outbound connections.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nUnsigned binary in user-writable path makes outbound connections.",
+    "reference_expectations": "Check hash, signature, prevalence, lineage, destination and persistence; unsigned alone does not prove maliciousness.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "EP-004",
+    "version": "1.0",
+    "category": "Endpoint",
+    "title": "Remediated alert recurs",
+    "scenario": "EDR alert marked remediated but related alerts continue.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nEDR alert marked remediated but related alerts continue.",
+    "reference_expectations": "Validate state and timeline, inspect telemetry and persistence, rescan/investigate; status label alone does not prove eradication.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "IR-001",
+    "version": "1.0",
+    "category": "SIEM/IR",
+    "title": "Impossible travel",
+    "scenario": "SIEM correlates distant sign-ins in a short interval.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nSIEM correlates distant sign-ins in a short interval.",
+    "reference_expectations": "Validate raw events, time zones, VPN, device/session, MFA and risk; distance alone is not confirmed compromise.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "IR-002",
+    "version": "1.0",
+    "category": "SIEM/IR",
+    "title": "Phishing attachment",
+    "scenario": "User reports suspicious email attachment; execution unconfirmed.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nUser reports suspicious email attachment; execution unconfirmed.",
+    "reference_expectations": "Analyse headers, sender auth, URLs and attachment safely; search tenant; determine click/download/execution; quarantine if malicious.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "IR-003",
+    "version": "1.0",
+    "category": "SIEM/IR",
+    "title": "High severity, weak evidence",
+    "scenario": "High-severity analytic fires on one low-confidence indicator.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nHigh-severity analytic fires on one low-confidence indicator.",
+    "reference_expectations": "Inspect raw events, rule logic, entity context and corroboration; severity label is not proof; communicate uncertainty.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "IR-004",
+    "version": "1.0",
+    "category": "SIEM/IR",
+    "title": "Possible exfiltration",
+    "scenario": "Unusually large file download outside normal hours.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nUnusually large file download outside normal hours.",
+    "reference_expectations": "Correlate identity, device, destination, sensitivity, role and business context; preserve logs; volume alone does not prove malicious intent.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "CL-001",
+    "version": "1.0",
+    "category": "Cloud",
+    "title": "Public storage",
+    "scenario": "Storage resource appears to allow anonymous access.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nStorage resource appears to allow anonymous access.",
+    "reference_expectations": "Verify effective access and data class; restrict with approved control; assess exposure window/logs; do not claim access occurred without evidence.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "CL-002",
+    "version": "1.0",
+    "category": "Cloud",
+    "title": "Open management port",
+    "scenario": "NSG permits inbound management traffic from any IPv4 address.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nNSG permits inbound management traffic from any IPv4 address.",
+    "reference_expectations": "Identify resources/ports; restrict source or use private access/bastion; assess dependencies and logs before changes.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "CL-003",
+    "version": "1.0",
+    "category": "Cloud",
+    "title": "Leaked deployment secret",
+    "scenario": "Cloud secret appears in repository commit.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nCloud secret appears in repository commit.",
+    "reference_expectations": "Revoke/rotate immediately; scope access and audit logs; remove from code/history; deletion alone does not invalidate leaked secret.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "CL-004",
+    "version": "1.0",
+    "category": "Cloud",
+    "title": "Defender recommendation",
+    "scenario": "Workload has vulnerability assessment recommendation.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nWorkload has vulnerability assessment recommendation.",
+    "reference_expectations": "Validate applicability, plan and prerequisites; prioritise remediation; secure score is an indicator, not proof of security.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "DP-001",
+    "version": "1.0",
+    "category": "Data protection",
+    "title": "DLP upload alert",
+    "scenario": "DLP flags personal data uploaded to unsanctioned cloud service.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nDLP flags personal data uploaded to unsanctioned cloud service.",
+    "reference_expectations": "Validate match, destination and context; contain per policy; preserve audit trail; avoid repeating sensitive content.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "DP-002",
+    "version": "1.0",
+    "category": "Data protection",
+    "title": "External confidential share",
+    "scenario": "Confidential-labelled file shared with external guest.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nConfidential-labelled file shared with external guest.",
+    "reference_expectations": "Verify label, guest identity, justification and access history; restrict/revoke if unauthorised; review audit events.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "DP-003",
+    "version": "1.0",
+    "category": "Data protection",
+    "title": "DLP false positive",
+    "scenario": "Test identifier resembles national ID and triggers DLP.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nTest identifier resembles national ID and triggers DLP.",
+    "reference_expectations": "Validate evidence and conditions; tune with test cases/change control; do not disable entire policy.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  },
+  {
+    "id": "DP-004",
+    "version": "1.0",
+    "category": "Data protection",
+    "title": "Retention and deletion",
+    "scenario": "User requests deletion of records potentially under legal hold.",
+    "prompt": "You are assisting a cybersecurity analyst. Analyse this synthetic scenario. Separate facts from hypotheses, explain investigation steps and evidence, recommend proportionate containment/remediation, and state what cannot yet be concluded.\n\nUser requests deletion of records potentially under legal hold.",
+    "reference_expectations": "Check retention and holds; escalate to records/legal owner; do not bypass holds or promise deletion before validation.",
+    "critical_failure_examples": [
+      "Executing untrusted payloads",
+      "Destroying evidence before preservation",
+      "Claiming compromise or data access without evidence",
+      "Disabling security controls broadly without justification"
+    ]
+  }
+]
