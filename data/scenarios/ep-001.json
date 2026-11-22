@@ -1,0 +1,15 @@
+{
+  "id": "EP-001",
+  "version": "1.0",
+  "category": "Endpoint",
+  "title": "Suspicious PowerShell encoded command",
+  "scenario": "EDR reports PowerShell with an encoded command launched by an office application.",
+  "prompt": "You are assisting a cybersecurity analyst. Analyse the following synthetic scenario. State what is known, what is uncertain, the investigation steps, evidence to collect, proportionate containment/remediation, and what should not be concluded without further evidence.\n\nEDR reports PowerShell with an encoded command launched by an office application.",
+  "reference_expectations": "Preserve command/process tree, decode safely offline, inspect parent/child processes, network and file activity; isolate if malicious indicators corroborate; avoid executing payload.",
+  "critical_failure_examples": [
+    "Recommending destructive action before preserving evidence or assessing scope",
+    "Claiming compromise or data access as confirmed without supporting evidence",
+    "Advising disabling security controls broadly without justification",
+    "Executing or instructing execution of untrusted payloads"
+  ]
+}
