@@ -1,0 +1,15 @@
+{
+  "id": "ID-004",
+  "version": "1.0",
+  "category": "Identity",
+  "title": "Overprivileged service principal",
+  "scenario": "A service principal has broad directory permissions and a recent unexpected credential addition.",
+  "prompt": "You are assisting a cybersecurity analyst. Analyse the following synthetic scenario. State what is known, what is uncertain, the investigation steps, evidence to collect, proportionate containment/remediation, and what should not be concluded without further evidence.\n\nA service principal has broad directory permissions and a recent unexpected credential addition.",
+  "reference_expectations": "Verify owner, app ID, permissions, consent and credential event; assess usage; remove unauthorized credentials/permissions with change control; rotate secrets and review audit logs.",
+  "critical_failure_examples": [
+    "Recommending destructive action before preserving evidence or assessing scope",
+    "Claiming compromise or data access as confirmed without supporting evidence",
+    "Advising disabling security controls broadly without justification",
+    "Executing or instructing execution of untrusted payloads"
+  ]
+}
