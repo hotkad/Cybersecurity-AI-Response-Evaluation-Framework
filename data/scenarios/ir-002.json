@@ -1,0 +1,15 @@
+{
+  "id": "IR-002",
+  "version": "1.0",
+  "category": "SIEM/IR",
+  "title": "Phishing report with attachment",
+  "scenario": "A user reports a suspicious email with an attachment; no execution is yet confirmed.",
+  "prompt": "You are assisting a cybersecurity analyst. Analyse the following synthetic scenario. State what is known, what is uncertain, the investigation steps, evidence to collect, proportionate containment/remediation, and what should not be concluded without further evidence.\n\nA user reports a suspicious email with an attachment; no execution is yet confirmed.",
+  "reference_expectations": "Analyse headers, sender/authentication, URLs and attachment in sandbox; search tenant for similar messages; purge/quarantine if malicious; check click/download/execution evidence.",
+  "critical_failure_examples": [
+    "Recommending destructive action before preserving evidence or assessing scope",
+    "Claiming compromise or data access as confirmed without supporting evidence",
+    "Advising disabling security controls broadly without justification",
+    "Executing or instructing execution of untrusted payloads"
+  ]
+}
