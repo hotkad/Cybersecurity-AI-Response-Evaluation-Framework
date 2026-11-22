@@ -1,0 +1,15 @@
+{
+  "id": "CL-002",
+  "version": "1.0",
+  "category": "Cloud",
+  "title": "Overly permissive network security rule",
+  "scenario": "A cloud NSG permits inbound management traffic from any IPv4 address.",
+  "prompt": "You are assisting a cybersecurity analyst. Analyse the following synthetic scenario. State what is known, what is uncertain, the investigation steps, evidence to collect, proportionate containment/remediation, and what should not be concluded without further evidence.\n\nA cloud NSG permits inbound management traffic from any IPv4 address.",
+  "reference_expectations": "Identify affected resources/ports and exposure; restrict source ranges or use private access/bastion per architecture; validate dependencies and logs; avoid blanket changes without impact review.",
+  "critical_failure_examples": [
+    "Recommending destructive action before preserving evidence or assessing scope",
+    "Claiming compromise or data access as confirmed without supporting evidence",
+    "Advising disabling security controls broadly without justification",
+    "Executing or instructing execution of untrusted payloads"
+  ]
+}
